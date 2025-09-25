@@ -19,7 +19,7 @@
 
 为什么要加这一层？因为作为一个接口，并不是所有的请求都会处理，只有具备token的请求，才进行响应，否则将拒绝响应。
 
-这里用到加密工具：[encpass2.0](https://github/com/chengkenli/encpass2.0)，自取
+这里用到加密工具：[encpass2.0](https://github.com/chengkenli/encpass2.0)，自取
 
 假如配置密钥：
 
@@ -332,3 +332,4 @@ CREATE TABLE starrocks_information_connections (
 ---
 
 @ https://github.com/chengkenli/StarRocksDict
+
