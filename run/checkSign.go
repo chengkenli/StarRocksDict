@@ -1,0 +1,26 @@
+package run
+
+import (
+	"StarRocksDict/util"
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
+
+func checkSign(c *gin.Context) {
+	sign := c.GetHeader("X-StarRocks")
+	if len(sign) == 0 {
+		c.AbortWithStatusJSON(http.StatusBadRequest, "密钥HEAD为空，您无权使用管理员POST功能！！")
+		return
+	}
+	token, err := util.AesDecrypt2(sign, util.Read.StarRocks.ServiceEnckey)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, "Token加密有误，您无权使用管理员POST功能！！")
+		return
+	}
+	env := util.Read.StarRocks.ServiceXStarRocks
+	if token != env {
+		c.AbortWithStatusJSON(http.StatusBadRequest, "Token校验不一致，您无权使用管理员POST功能！！")
+		return
+	}
+	c.Next()
+}
