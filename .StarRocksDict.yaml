@@ -1,0 +1,40 @@
+
+metadb:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: **************1.
+  base: chengken.starrocks_information_connections
+  slowconfig: chengken.starrocks_information_slowconfig
+
+
+StarRocks:
+  service_port: 8877
+  service_enckey: xxx
+  service_X-StarRocks: xxx
+
+Ranger:
+  host: http://xxx
+  user: admin
+  password: admin
+
+Schema:
+  lkremind:
+    - xxx-xxx-xxx-xxx-xxx
+  larkMeta: ops.feishu_user_information
+  GroupUri: xxx
+  Connects:
+    - (0). 常用连接方式.
+    - (1). [Web](xxx)
+    - (2). [DBeaver](xxx)
+    - (3). [ODBC](xxx)
+    - (4). [Python](xxx)
+    - (5). [Tableau](xxx)
+    - (6). [观远](xxx)
+    - (7). [MySQL Client](xxx)
+
+log:
+  line: true
+  level: 0
+  path: '/u/users/svccndlopsns/chengken/log'
+  console: true
